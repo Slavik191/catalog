@@ -4,8 +4,9 @@ import './Category.sass';
 
 let Category = (props) => {
     let chooseCategory = () => {
-        props.chooseCategory(props.category)
+        props.choose(props.category)
     }
+    console.log(props)
 
     return (
         <div className='category' onClick = {chooseCategory}>

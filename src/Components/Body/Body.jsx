@@ -9,7 +9,7 @@ class Body extends Component{
         return(
             <div className = 'body'>
                 <HeaderBody />
-                <BodyMain selectedCategory = {this.props.selectedCategory}/>
+                <BodyMain selectedCategory = {this.props.selectedCategory} addNewProduct = {this.props.addNewProduct} changeInfoProduct = {this.props.changeInfoProduct}/>
             </div>
         )
     }

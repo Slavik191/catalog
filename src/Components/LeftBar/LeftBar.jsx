@@ -8,7 +8,7 @@ class LeftBar extends Component{
         return(
             <div className = 'leftBar'>
                 <HeaderLeftBar addNewCategoryModalOpen = {this.props.addNewCategoryModalOpen}/>
-                <List categories = {this.props.categories} chooseCategory = {this.props.chooseCategory}/>
+                <List categories = {this.props.categories} choose = {this.props.choose} products = {this.props.products}/>
             </div>
         )
     }

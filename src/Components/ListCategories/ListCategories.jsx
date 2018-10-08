@@ -8,7 +8,7 @@ class ListCategories extends Component {
         let list = [];
         for (let key in this.props.categories) {
             list.push(
-                <Category name = {key}  key = {key} chooseCategory = {this.props.chooseCategory} category = {{[key]: this.props.categories[key]}}/>
+                <Category name = {key}  key = {key} choose = {this.props.choose} category = {{[key]: this.props.categories[key]}}/>
             )
         }
         return (

@@ -16,13 +16,15 @@ function Transition(props) {
 class AddNewCategoryModal extends Component {
     state = {
         name: '',
-        attribute1: {name: '', value: ''},
+        infoAttributes: {attribute1: {name: '', value: ''}},
         quantity: 2
     }
 
     newAttribute = () => {
+        let infoAttributes = this.state.infoAttributes;
+        infoAttributes = Object.assign(infoAttributes, {[`attribute${this.state.quantity}`]: {name: '', value: ''}})
         this.setState({
-            [`attribute${this.state.quantity}`]: {name: '', value: ''},
+            infoAttributes: infoAttributes,
             quantity: ++this.state.quantity
         });
     }
@@ -34,14 +36,27 @@ class AddNewCategoryModal extends Component {
     };
 
     handleChangeAttributeName = name => event => {
+        let infoAttributes = this.state.infoAttributes;
+        for(let key in infoAttributes){
+            if(key === name){
+                infoAttributes[key].name = event.target.value;
+            }
+        }
+        console.log(infoAttributes)
         this.setState({
-            [name]: {name: event.target.value, value: this.state[name].value}
+            infoAttributes: infoAttributes
         });
     };
 
     handleChangeAttributeValue = name => event => {
+        let infoAttributes = this.state.infoAttributes;
+        for(let key in infoAttributes){
+            if(key === name){
+                infoAttributes[key].value = event.target.value;
+            }
+        }
         this.setState({
-            [name]: {name: this.state[name].name, value: event.target.value}
+            infoAttributes: infoAttributes
         });
     };
 
@@ -66,7 +81,7 @@ class AddNewCategoryModal extends Component {
             <div className = 'newAttribute' key = {i}>
                 <TextField
                 label="Название категории"
-                value={this.state[`attribute${i}`].name}
+                value={this.state.infoAttributes[`attribute${i}`].name}
                 onChange={this.handleChangeAttributeName(`attribute${i}`)}
                 margin="normal"
                 />
@@ -75,7 +90,7 @@ class AddNewCategoryModal extends Component {
                 multiline
                 rows = '2'
                 rowsMax="2"
-                value={this.state[`attribute${i}`].value}
+                value={this.state.infoAttributes[`attribute${i}`].value}
                 onChange={this.handleChangeAttributeValue(`attribute${i}`)}
                 margin="normal"
                 />

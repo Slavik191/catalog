@@ -7,7 +7,7 @@ class BodyMain extends Component{
     render() {
         return(
             <div className = 'bodyMain'>
-                <NewProduct selectedCategory = {this.props.selectedCategory}/>
+                <NewProduct selectedCategory = {this.props.selectedCategory} addNewProduct = {this.props.addNewProduct} changeInfoProduct = {this.props.changeInfoProduct}/>
             </div>
         )
     }
