@@ -25,8 +25,16 @@ class List extends Component {
                         <Tab label="Товары" />
                     </Tabs>
                 </AppBar>
-                {this.state.value === 0 && <ListCategories categories={this.props.categories} choose={this.props.choose} />}
-                {this.state.value === 1 && <ListProducts products={this.props.products} choose={this.props.choose} />}
+                {this.state.value === 0 && <ListCategories 
+                                                categories={this.props.categories} 
+                                                choose={this.props.choose} 
+                                                filter = {this.props.filter}
+                                            />}
+                {this.state.value === 1 && <ListProducts 
+                                                products={this.props.products} 
+                                                choose={this.props.choose} 
+                                                filter = {this.props.filter}
+                                            />}
             </div>
         )
     }

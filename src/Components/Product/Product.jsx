@@ -6,8 +6,6 @@ let Product = (props) => {
     let chooseProduct = () => {
         props.choose(props.product)
     }
-    console.log(props)
-
     return (
         <div className='product' onClick = {chooseProduct}>
             {props.name}

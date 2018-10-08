@@ -7,9 +7,16 @@ class ListProducts extends Component {
     render() {
         let list = [];
         for (let key in this.props.products) {
-            list.push(
-                <Product name = {key}  key = {key} choose = {this.props.choose} product = {{[key]: this.props.products[key]}}/>
-            )
+            if(key.indexOf(this.props.filter) !== -1){
+                list.push(
+                    <Product 
+                        name = {key}  
+                        key = {key} 
+                        choose = {this.props.choose} 
+                        product = {{[key]: this.props.products[key]}}
+                    />
+                )
+            }
         }
         return (
             <div>

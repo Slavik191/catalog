@@ -42,7 +42,6 @@ class AddNewCategoryModal extends Component {
                 infoAttributes[key].name = event.target.value;
             }
         }
-        console.log(infoAttributes)
         this.setState({
             infoAttributes: infoAttributes
         });
@@ -69,7 +68,7 @@ class AddNewCategoryModal extends Component {
         this.props.addNewCategoryModalClose();
         this.setState({
             name: '',
-            attribute1: {name: '', value: ''},
+            infoAttributes: {attribute1: {name: '', value: ''}},
             quantity: 2
         })
     }

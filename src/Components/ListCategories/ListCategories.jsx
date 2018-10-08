@@ -7,9 +7,16 @@ class ListCategories extends Component {
     render() {
         let list = [];
         for (let key in this.props.categories) {
-            list.push(
-                <Category name = {key}  key = {key} choose = {this.props.choose} category = {{[key]: this.props.categories[key]}}/>
-            )
+            if(key.indexOf(this.props.filter) !== -1){
+                list.push(
+                    <Category 
+                        name = {key}  
+                        key = {key} 
+                        choose = {this.props.choose} 
+                        category = {{[key]: this.props.categories[key]}}
+                    />
+                )
+            }
         }
         return (
             <div>
