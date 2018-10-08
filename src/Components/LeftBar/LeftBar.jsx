@@ -7,8 +7,8 @@ class LeftBar extends Component{
     render(){
         return(
             <div className = 'leftBar'>
-                <HeaderLeftBar />
-                <List />
+                <HeaderLeftBar addNewCategoryModalOpen = {this.props.addNewCategoryModalOpen}/>
+                <List categories = {this.props.categories} chooseCategory = {this.props.chooseCategory}/>
             </div>
         )
     }
